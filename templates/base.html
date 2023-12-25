@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/static/css/style.css">
+  {% block styles %}{% endblock styles %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+  <header>
+    {% block header %}{% endblock header %}
+    <a href="/" class="menu-btns">Главная</a>
+    <a href="/products" class="menu-btns">Товары</a>
+    <a href="/contact" class="menu-btns">Контакты</a>
+  </header>
+
+<main>
+  {% block main %}{% endblock main %}
+</main>
+
+
+<footer>
+  {% block footer %}{% endblock footer %}
+  <p>@ Все права защищены в соответствии с Законом № 333 ФЗ "О Правах потребителей"</p>
+  <p>ООО "ТАМОЖНЯ Адрес: Планета Земля, г. Столица мира, пререкрёсток Всемирных дорог, д. 21</p>
+  <p>При заказе товара проконсультируйтесь со специалистом</p>
+  <p>И помните, мы найдем нужный товар в любой части мира. Каждый ослик в этом мире работает на нас</p>
+</footer>
+
+
+</body>
+</html>

@@ -20,5 +20,5 @@ from products.urls import urlpatterns as urls_products
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include(urls_products))
+    # path("", include(urls_products))
 ]
