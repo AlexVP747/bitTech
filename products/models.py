@@ -11,7 +11,7 @@ class Product (models.Model):
 
     price = models.FloatField(verbose_name="цена")
 
-    decs = models.TextField(verbose_name="Описание")
+    desc = models.TextField(verbose_name="Описание")
 
 # Служебный класс
     class Meta:

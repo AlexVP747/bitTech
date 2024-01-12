@@ -12,4 +12,4 @@ def main_page(request):
     }
 
     # Не забываю привязать контекст к функции render
-    return render(request, "templates/index.html", context=context)
+    return render(request, "products/index.html", context=context)
