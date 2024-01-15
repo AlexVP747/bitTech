@@ -21,8 +21,8 @@ class Product (models.Model):
         verbose_name_plural="Товары"
 
 # Чтобы в списке на административной панели товары отображались под своими названиями
-        def __str__(self):
-            return self.title 
+    def __str__(self):
+        return self.title 
 
 #  Создание консоли
 #  - создание миграции для создании таблицы
