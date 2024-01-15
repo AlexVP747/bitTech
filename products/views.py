@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from products.models import Product
+from products.models import Maker
 
 def main_page(request):
     # Получаю все товары из таблицы
@@ -13,3 +14,13 @@ def main_page(request):
 
     # Не забываю привязать контекст к функции render
     return render(request, "products/index.html", context=context)
+
+# def main_page(request):
+   
+#     listMakers = Maker.objects.all()
+
+#     context = {
+#         "listMakers": listMakers
+#     }
+
+#     return render(request, "products/index.html", context=context)

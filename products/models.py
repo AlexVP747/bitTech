@@ -25,13 +25,22 @@ class Product (models.Model):
             return self.title 
 
 #  Создание консоли
-#   -создание миграции для создании таблицы
-#   - загрузка созданной таблици в свою базу данных
+#  - создание миграции для создании таблицы
+#  - загрузка созданной таблици в свою базу данных
     
+class Maker (models.Model):
+ 
+    country = models.CharField(verbose_name="Страна производитель", max_length=30)
 
+    firm = models.CharField(verbose_name="Фирма", max_length=50)
 
-    
+        
+    class Meta:
+       
+        verbose_name="Страна производитель"
+            
+        verbose_name_plural="Страны производители"
 
-
-
+    def __str__(self):
+            return self.title 
 

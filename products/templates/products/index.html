@@ -15,7 +15,16 @@
 {% endblock content %}
 
 
+{% block content %}
+    {% for Maker in listMakers %}
+        <div class="Maker">
+            <h2>{{Maker.country}}</h2>
 
+            <p>{{Makers.firm}}</p>
+
+        </div>
+    {% endfor %}
+{% endblock content %}
 
 
 
