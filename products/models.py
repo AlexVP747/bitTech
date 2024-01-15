@@ -1,5 +1,20 @@
 from django.db import models
 
+class Maker (models.Model):
+ 
+    country = models.CharField(verbose_name="Страна производитель", max_length=30)
+
+    firm = models.CharField(verbose_name="Фирма", max_length=50)
+        
+    class Meta:
+       
+        verbose_name="Страна производитель"
+            
+        verbose_name_plural="Страны производители"
+
+    def __str__(self):
+            return self.title 
+    
 # Создаю модель (таблицу) товаров
 #  Она должна наследоваться от models.Model, чтобы джанго понял что это модель
 class Product (models.Model):
@@ -12,6 +27,14 @@ class Product (models.Model):
     price = models.FloatField(verbose_name="цена")
 
     desc = models.TextField(verbose_name="Описание")
+
+    maker = models.ForeignKey(
+        Maker, 
+        verbose_name="Производитель",
+        on_delete=models.CASCADE,
+        related_name="products",
+        null=True
+        )
 
 # Служебный класс
     class Meta:
@@ -28,19 +51,5 @@ class Product (models.Model):
 #  - создание миграции для создании таблицы
 #  - загрузка созданной таблици в свою базу данных
     
-class Maker (models.Model):
- 
-    country = models.CharField(verbose_name="Страна производитель", max_length=30)
 
-    firm = models.CharField(verbose_name="Фирма", max_length=50)
-
-        
-    class Meta:
-       
-        verbose_name="Страна производитель"
-            
-        verbose_name_plural="Страны производители"
-
-    def __str__(self):
-            return self.title 
 
