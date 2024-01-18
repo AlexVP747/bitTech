@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Maker (models.Model):
  
@@ -13,7 +14,7 @@ class Maker (models.Model):
         verbose_name_plural="Страны производители"
 
     def __str__(self):
-            return self.title 
+            return self.country 
     
 # Создаю модель (таблицу) товаров
 #  Она должна наследоваться от models.Model, чтобы джанго понял что это модель
@@ -25,6 +26,8 @@ class Product (models.Model):
     title = models.CharField(verbose_name="Название товара", max_length=150)
 
     price = models.FloatField(verbose_name="цена")
+
+    category = models.CharField(verbose_name="Категория", max_length=120, null=True)
 
     desc = models.TextField(verbose_name="Описание")
 
@@ -70,14 +73,24 @@ class Profile (models.Model):
         verbose_name="Купленные товары",
         related_name="Profiles",
     )
-        
+
+    user = models.OneToOneField(
+        User,
+        verbose_name="Системный пользователь",
+        on_delete=models.CASCADE,
+        related_name="profile",
+        null=True
+    )
+
+
+
     class Meta:
        
-        verbose_name="Имя"
+        verbose_name="Профиль"
             
-        verbose_name_plural="Имена"
+        verbose_name_plural="Профили"
 
     def __str__(self):
-            return self.title 
+        return self.name + " " + self.middle_name + " " + self.surname 
 
 
