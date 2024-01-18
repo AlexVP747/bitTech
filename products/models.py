@@ -29,6 +29,12 @@ class Product (models.Model):
 
     category = models.CharField(verbose_name="Категория", max_length=120, null=True)
 
+    image = models.ImageField(
+        verbose_name="Изображение товара",
+        upload_to="products_images/",
+        null=True
+    )
+
     desc = models.TextField(verbose_name="Описание")
 
     maker = models.ForeignKey(

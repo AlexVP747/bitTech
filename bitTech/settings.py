@@ -55,7 +55,7 @@ ROOT_URLCONF = 'bitTech.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "baseTemplates"],
+        'DIRS': [BASE_DIR / "baseTemplates"], # добавили путь нахождения каркаса сайта
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,3 +122,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ручные настройки медиа
+MEDIA_URL = '/media/' # вместо медия пишется адресс нахождения файлов
+MEDIA_ROOT = BASE_DIR / 'media' # прописали абсолютный путь нахождения папки медиа на этом компе
