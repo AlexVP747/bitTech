@@ -51,5 +51,33 @@ class Product (models.Model):
 #  - создание миграции для создании таблицы
 #  - загрузка созданной таблици в свою базу данных
     
+class Profile (models.Model):
+ 
+    name = models.CharField(verbose_name="Имя", max_length=50,)
+
+    middle_name = models.CharField(verbose_name="Отчество", max_length=50,)
+
+    surname = models.CharField(verbose_name="Фамилия", max_length=50,)
+
+    date_of_birth = models.DateField(verbose_name="Дата рождения",)
+    
+    delivery_address = models.CharField(verbose_name="Адрес доставки", max_length=100,)
+    
+    bonus_and_discount = models.IntegerField(verbose_name="Бонусы и скидка", null=True)
+    
+    purchased_products = models.ManyToManyField(
+        Product, 
+        verbose_name="Купленные товары",
+        related_name="Profiles",
+    )
+        
+    class Meta:
+       
+        verbose_name="Имя"
+            
+        verbose_name_plural="Имена"
+
+    def __str__(self):
+            return self.title 
 
 
