@@ -15,4 +15,4 @@ class Image (models.Model):
         verbose_name_plural="Изображения"
 
     def __str__(self):
-            return self.images 
+            return self.image

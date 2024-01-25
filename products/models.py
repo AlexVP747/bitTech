@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from Gallery.models import Image
 
 class Maker (models.Model):
  
@@ -32,6 +33,13 @@ class Product (models.Model):
     image = models.ImageField(
         verbose_name="Изображение товара",
         upload_to="products_images/",
+        null=True
+    )
+    gallery = models.ForeignKey(
+        Image,
+        verbose_name="Галерея изображений",
+        on_delete=models.CASCADE,
+        related_name="product",
         null=True
     )
 
